@@ -1,0 +1,209 @@
+/* Kutumb -- Household Expense Tracker
+   Theme: Fintech-lite -- teal & charcoal, chart-forward. Bootstrap 5 base,
+   this file layers the brand palette, typography, and a few dashboard-
+   specific components (stat tiles, budget bars, unusual-spend badges) on
+   top of it. */
+
+:root {
+    --kt-teal-900: #0f766e;
+    --kt-teal-700: #0d9488;
+    --kt-teal-600: #14b8a6;
+    --kt-teal-100: #ccfbf1;
+    --kt-teal-50:  #f0fdfa;
+
+    --kt-charcoal-900: #0f172a;
+    --kt-charcoal-800: #1e293b;
+    --kt-charcoal-700: #334155;
+    --kt-charcoal-500: #64748b;
+    --kt-charcoal-300: #cbd5e1;
+    --kt-charcoal-100: #e2e8f0;
+
+    --kt-amber: #f59e0b;
+    --kt-amber-100: #fef3c7;
+    --kt-red: #dc2626;
+    --kt-red-100: #fee2e2;
+    --kt-green: #16a34a;
+
+    --kt-bg: #f4f7f7;
+    --kt-surface: #ffffff;
+    --kt-border: #e2e8f0;
+    --kt-radius: 12px;
+    --kt-shadow: 0 2px 14px rgba(15, 23, 42, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background: var(--kt-bg);
+    color: var(--kt-charcoal-800);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.96rem;
+}
+
+h1, h2, h3, h4, h5, .brand-mark, .stat-value {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.page-title { color: var(--kt-charcoal-900); font-weight: 700; margin-bottom: 0.15rem; }
+.section-title { font-weight: 700; color: var(--kt-charcoal-900); margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+a.link-teal, a { color: var(--kt-teal-700); }
+a.link-teal:hover, a:hover { color: var(--kt-teal-900); }
+
+/* ---------- Navbar ---------- */
+.kutumb-navbar {
+    background: linear-gradient(120deg, var(--kt-charcoal-900) 0%, var(--kt-charcoal-700) 100%);
+    box-shadow: var(--kt-shadow);
+    padding: 0.6rem 0;
+}
+.kutumb-navbar .navbar-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.kutumb-navbar .brand-mark {
+    background: var(--kt-teal-600);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+.kutumb-navbar .nav-link {
+    color: rgba(255,255,255,0.78);
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+}
+.kutumb-navbar .nav-link:hover { color: #fff; }
+.kutumb-navbar .nav-link.active {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+}
+.navbar-user .user-name { color: #fff; font-weight: 600; font-size: 0.9rem; }
+.user-role-badge {
+    background: var(--kt-teal-600);
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* ---------- Buttons ---------- */
+.btn-teal {
+    background: var(--kt-teal-700);
+    border-color: var(--kt-teal-700);
+    color: #fff;
+    font-weight: 600;
+}
+.btn-teal:hover { background: var(--kt-teal-900); border-color: var(--kt-teal-900); color: #fff; }
+.btn-outline-teal {
+    border-color: var(--kt-teal-700);
+    color: var(--kt-teal-700);
+    font-weight: 600;
+}
+.btn-outline-teal:hover { background: var(--kt-teal-700); color: #fff; }
+.bg-teal { background-color: var(--kt-teal-700) !important; }
+
+/* ---------- Cards / surfaces ---------- */
+.card {
+    border: 1px solid var(--kt-border);
+    border-radius: var(--kt-radius);
+    box-shadow: var(--kt-shadow);
+}
+.card-header {
+    background: var(--kt-surface);
+    border-bottom: 1px solid var(--kt-border);
+    font-weight: 700;
+    color: var(--kt-charcoal-900);
+    border-top-left-radius: var(--kt-radius) !important;
+    border-top-right-radius: var(--kt-radius) !important;
+}
+
+/* ---------- Stat tiles ---------- */
+.stat-tile {
+    background: var(--kt-surface);
+    border: 1px solid var(--kt-border);
+    border-radius: var(--kt-radius);
+    padding: 1rem 1.1rem;
+    box-shadow: var(--kt-shadow);
+    height: 100%;
+    border-left: 4px solid var(--kt-teal-700);
+}
+.stat-tile-warn { border-left-color: var(--kt-amber); }
+.stat-label { color: var(--kt-charcoal-500); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; font-weight: 600; }
+.stat-value { font-size: 1.6rem; font-weight: 700; color: var(--kt-charcoal-900); margin-top: 0.15rem; }
+
+/* ---------- Budget progress ---------- */
+.budget-progress { height: 8px; border-radius: 4px; background: var(--kt-charcoal-100); }
+.budget-progress .progress-bar { border-radius: 4px; }
+
+/* ---------- Unusual-spend badge ---------- */
+.badge-unusual {
+    background: var(--kt-amber-100);
+    color: #92400e;
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+/* ---------- Expense card / table ---------- */
+.expense-card .card-header { background: var(--kt-teal-50); }
+.expense-table thead th { color: var(--kt-charcoal-500); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.02em; border-bottom-width: 1px; }
+
+/* ---------- Category rename inline form ---------- */
+.rename-input[readonly] { background: transparent; border-color: transparent; padding-left: 0; }
+
+/* ---------- Login ---------- */
+.login-shell {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top left, var(--kt-teal-900) 0%, var(--kt-charcoal-900) 55%);
+    padding: 2rem 1rem;
+}
+.login-card {
+    background: var(--kt-surface);
+    border-radius: 18px;
+    padding: 2.25rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+.login-brand { text-align: center; margin-bottom: 1.5rem; }
+.login-brand .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--kt-teal-700);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.login-brand h1 { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 0; color: var(--kt-charcoal-900); }
+.demo-creds { margin-top: 1.5rem; border-top: 1px dashed var(--kt-border); padding-top: 1rem; font-size: 0.82rem; }
+.demo-creds table td { padding: 0.25rem 0.4rem; vertical-align: middle; }
+
+/* ---------- Error pages ---------- */
+.error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--kt-charcoal-900); }
+.error-card { background: var(--kt-surface); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; max-width: 420px; }
+.error-card h1 { font-size: 3rem; color: var(--kt-teal-700); font-weight: 700; }
+
+/* ---------- Footer ---------- */
+.site-footer { text-align: center; padding: 1.5rem 0 2.5rem; color: var(--kt-charcoal-500); font-size: 0.82rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 767px) {
+    .stat-value { font-size: 1.3rem; }
+}
